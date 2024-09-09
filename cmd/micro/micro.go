@@ -414,6 +414,7 @@ func DoEvent() {
 	}
 	action.MainTab().Display()
 	action.InfoBar.Display()
+	action.ToolTips.Display()
 	screen.Screen.Show()
 
 	// Check for new events
@@ -481,7 +482,8 @@ func DoEvent() {
 		} else if action.InfoBar.HasPrompt {
 			action.InfoBar.HandleEvent(event)
 		} else {
-			action.Tabs.HandleEvent(event)
+			passthru_event := action.GetTooltip().InterceptEvent(event)
+			action.Tabs.HandleEvent(passthru_event)
 		}
 	}
 

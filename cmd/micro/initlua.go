@@ -46,6 +46,7 @@ func luaImportMicro() *lua.LTable {
 	ulua.L.SetField(pkg, "TermMessage", luar.New(ulua.L, screen.TermMessage))
 	ulua.L.SetField(pkg, "TermError", luar.New(ulua.L, screen.TermError))
 	ulua.L.SetField(pkg, "InfoBar", luar.New(ulua.L, action.GetInfoBar))
+	ulua.L.SetField(pkg, "Tooltip", luar.New(ulua.L, action.GetTooltip))
 	ulua.L.SetField(pkg, "Log", luar.New(ulua.L, log.Println))
 	ulua.L.SetField(pkg, "SetStatusInfoFn", luar.New(ulua.L, display.SetStatusInfoFnLua))
 	ulua.L.SetField(pkg, "CurPane", luar.New(ulua.L, func() *action.BufPane {
